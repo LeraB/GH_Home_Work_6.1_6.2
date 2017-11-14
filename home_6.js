@@ -22,5 +22,7 @@ function client(name, second_name, status){
 }
 
 var client1= new client('Lera', 'Briantseva', 'usual')
+client1()
 var client2= new client('Marina', 'Bakum', 'usual')
+client2()
 
