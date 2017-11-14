@@ -1,4 +1,4 @@
-function debounce (callback, time) {
+function debounce(callback, time) {
     var timer
 
     return function () {
@@ -14,4 +14,4 @@ document
     .querySelector('input[type="search"]')
     .addEventListener('input', debounce(function (event) {
         console.log(event.target.value)
-          }, 250), false)
+    }, 250), false)
