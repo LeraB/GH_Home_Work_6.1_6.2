@@ -1,28 +1,55 @@
-function client(name, second_name, status) {
+function Client(name, second_name, status) {
     var userName = name || 'Anonym'
     var userStatus = status || 'usual'
-    var SecondName = second_name || 'Anonym'
+    var secondName = second_name || 'Anonym'
     var count = 0;
-    this.Name = function () {
-        console.log(userName)
+    var  all_data = '';
+
+    this.name = function () {
+        return console.log(userName)
     }
 
-    this.SecondName = function () {
-        console.log(userName)
+
+    this.new_name = function (name) {
+        userName = 'Name : ' + name;
     }
 
-    this.Status = function () {
-        console.log(userStatus)
+    this.second_name = function () {
+        return console.log(secondName)
+    }
+   this.new_second_name = function () {
+        secondName = 'Second name : ' + second_name;
     }
 
-    return function () {
-        console.log('user data : ' + '\n' + 'Second name : ' + SecondName + '\n' + 'Name : ' + userName + '\n' + 'Status : ' + userStatus + '\n' + 'Visits : ' + ++count)
+    this.count = function () {
+        return console.log('Visits : ' + count++);
+    }
+    this.status = function () {
+        return console.log(userStatus);
     }
 
+    this.new_status = function () {
+        userStatus = 'Status : ' + status;
+    }
+
+    this.f_all_data = function () {
+        all_data = 'user data : \nSecond name : ' + secondName + '\n' + 'Name : ' + userName + '\n' + 'Status : ' + userStatus + '\n' + 'Visits : ' + ++count;
+        console.log(all_data)
+    }
+
+    return this
 }
 
-var client1 = new client('Lera', 'Briantseva', 'usual')
-client1()
-var client2 = new client('Marina', 'Bakum', 'usual')
-client2()
+var client1 = new Client('Lera', 'Briantseva', 'usual');
+client1.name();
+client1.status();
+client1.new_name('Kate');
+client1.name();
 
+var client2 = new Client('Marina', 'Bakum', 'usual');
+client2.name();
+client2.status();
+client1.f_all_data();
+client2.f_all_data();
+client2.count()
+client2.count()
