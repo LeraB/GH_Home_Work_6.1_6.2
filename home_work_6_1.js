@@ -1,54 +1,59 @@
-function Client(name, second_name, status) {
-    var userName = name || 'Anonym';
-    var userStatus = status || 'usual';
-    var secondName = second_name || 'Anonym';
+function Client(name, secondName, status) {
+    var userName = 'Name : ' + (name || 'Anonym');
+    var userStatus = 'Second name : ' + (status || 'usual');
+    var userSecondName = 'Status : ' + (secondName || 'Anonym');
     var count = 0;
     var  all_data = '';
 
-    this.name = function () {
-        return console.log(userName)
+
+
+    function newName (name) {
+        if((name !== '') && (name)){
+        userName = 'Name : ' + name;}
+    return userName;
     };
 
 
-    this.new_name = function (name) {
-        userName = 'Name : ' + name;
-    };
+   function funcNewSecondName (secondName) {
+       if((secondName !== '') && (secondName)){
+        userSecondName = 'Second name : ' + secondName;}
+   return  userSecondName;
+   };
 
-    this.second_name = function () {
-        return console.log(secondName)
-    };
-   this.new_second_name = function () {
-        secondName = 'Second name : ' + second_name;
-    };
-
-    this.count = function () {
+    (function () {
         return console.log('Visits : ' + count++);
-    };
-    this.status = function () {
-        return console.log(userStatus);
+    })()
+
+
+  function funcNewStatus (status) {
+      if((status !== '') && (status)){
+        userStatus = 'Status : ' + status;}
+        return userStatus
     };
 
-    this.new_status = function () {
-        userStatus = 'Status : ' + status;
-    };
-
-    this.f_all_data = function () {
-        all_data = 'user data : \nSecond name : ' + secondName + '\nName : ' + userName + '\nStatus : ' + userStatus + '\nVisits : ' + ++count;
-        console.log(all_data)
-    };
-
-    return this
+        return {
+       funcName: function (name) {
+           return console.log(newName(name));
+    },
+    funcStatus: function (status) {
+        return console.log(funcNewStatus(status));
+    },
+    funcSecondName: function (secondName) {
+        return console.log(funcNewSecondName(secondName));
+    },
+    funcAll: funcAllData = function () {
+        allData = 'user data : \n' + userSecondName + '\n' + userName + '\n' + userStatus + '\nVisits : ' + ++count;
+        console.log(allData)
+    }
+    }
 }
 
 var client1 = new Client('Lera', 'Briantseva', 'usual');
-client1.name();
-client1.status();
-client1.new_name('Kate');
-client1.name();
-
+client1.funcAll();
+client1.funcName();
+client1.funcName('Kate');
+client1.funcName('');
 var client2 = new Client('Marina', 'Bakum', 'usual');
-client2.name();
-client2.status();
-client1.f_all_data();
-client2.f_all_data();
-client2.count()
+client1.funcSecondName('');
+client1.funcName('Inna');
+client1.funcName();
