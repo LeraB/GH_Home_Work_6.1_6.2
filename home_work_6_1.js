@@ -1,8 +1,7 @@
 function Client(name, secondName, status) {
     var userName = 'Name : ' + (name || 'Anonym');
-    var userStatus = 'Second name : ' + (status || 'usual');
-    var userSecondName = 'Status : ' + (secondName || 'Anonym');
-    var count = 0;
+    var userStatus = 'Status : ' + (status || 'usual');
+    var userSecondName =  'Second name : ' + (secondName || 'Anonym');
     var  all_data = '';
 
 
@@ -20,11 +19,7 @@ function Client(name, secondName, status) {
    return  userSecondName;
    };
 
-    (function () {
-        return console.log('Visits : ' + count++);
-    })()
-
-
+   
   function funcNewStatus (status) {
       if((status !== '') && (status)){
         userStatus = 'Status : ' + status;}
@@ -42,7 +37,7 @@ function Client(name, secondName, status) {
         return console.log(funcNewSecondName(secondName));
     },
     funcAll: funcAllData = function () {
-        allData = 'user data : \n' + userSecondName + '\n' + userName + '\n' + userStatus + '\nVisits : ' + ++count;
+        allData = 'user data : \n' + userSecondName + '\n' + userName + '\n' + userStatus;
         console.log(allData)
     }
     }
